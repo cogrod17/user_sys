@@ -1,0 +1,4 @@
+.vscode
+__pycache__
+.env
+user_system_data

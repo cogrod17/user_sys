@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: fastapidb
+    image: postgres
+    restart: always
+    volumes:
+      - ./user_system_data:/var/lib/postgresql/data
+    ports:
+      - 1717:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - 5050:80
+    depends_on:
+      - db
+
+  user_system:
+    container_name: user_system
+    build: .
+    command: bash -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - .:/user_system
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    restart: always
+    environment:
+      DATABASE_URL: "${DB_URL}"

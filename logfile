@@ -1,0 +1,250 @@
+2022-08-14 20:22:03.067 -05 [18480] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-08-14 20:22:03.069 -05 [18480] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-08-14 20:22:03.069 -05 [18480] LOG:  listening on IPv6 address "::1", port 5432
+2022-08-14 20:22:03.070 -05 [18480] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-08-14 20:22:03.075 -05 [18481] LOG:  database system was shut down at 2022-08-13 21:45:16 -05
+2022-08-14 20:22:03.078 -05 [18480] LOG:  database system is ready to accept connections
+2022-08-14 20:52:06.276 -05 [18584] ERROR:  relation "users" does not exist at character 15
+2022-08-14 20:52:06.276 -05 [18584] STATEMENT:  SELECT * FROM Users
+	;
+2022-08-14 20:53:15.085 -05 [18584] ERROR:  relation "users" does not exist at character 15
+2022-08-14 20:53:15.085 -05 [18584] STATEMENT:  SELECT * FROM users;
+2022-08-14 21:34:57.601 -05 [18584] ERROR:  column "mark" does not exist at character 38
+2022-08-14 21:34:57.601 -05 [18584] STATEMENT:  DELETE FROM "Users" WHERE username = mark
+	;
+2022-08-14 21:35:17.837 -05 [18584] ERROR:  column "mark" does not exist at character 38
+2022-08-14 21:35:17.837 -05 [18584] STATEMENT:  DELETE FROM "Users" WHERE username = "mark";
+2022-08-14 21:47:51.214 -05 [18584] ERROR:  column "mark" does not exist at character 38
+2022-08-14 21:47:51.214 -05 [18584] STATEMENT:  SELECT FROM "Users" WHERE username = "mark";
+2022-08-14 21:48:03.091 -05 [18584] ERROR:  column "mark" does not exist at character 38
+2022-08-14 21:48:03.091 -05 [18584] STATEMENT:  SELECT FROM "Users" WHERE username = mark;
+2022-08-14 21:50:47.300 -05 [18480] LOG:  received fast shutdown request
+2022-08-14 21:50:47.300 -05 [18480] LOG:  aborting any active transactions
+2022-08-14 21:50:47.300 -05 [18544] FATAL:  terminating connection due to administrator command
+2022-08-14 21:50:47.300 -05 [18540] FATAL:  terminating connection due to administrator command
+2022-08-14 21:50:47.301 -05 [18480] LOG:  background worker "logical replication launcher" (PID 18487) exited with exit code 1
+2022-08-14 21:50:47.301 -05 [18482] LOG:  shutting down
+2022-08-14 21:50:47.305 -05 [18480] LOG:  database system is shut down
+2022-08-15 22:15:21.218 -05 [31172] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-08-15 22:15:21.220 -05 [31172] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-08-15 22:15:21.220 -05 [31172] LOG:  listening on IPv6 address "::1", port 5432
+2022-08-15 22:15:21.220 -05 [31172] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-08-15 22:15:21.224 -05 [31173] LOG:  database system was shut down at 2022-08-14 21:50:47 -05
+2022-08-15 22:15:21.227 -05 [31172] LOG:  database system is ready to accept connections
+2022-08-15 22:57:47.345 -05 [31172] LOG:  received fast shutdown request
+2022-08-15 22:57:47.346 -05 [31172] LOG:  aborting any active transactions
+2022-08-15 22:57:47.348 -05 [31278] FATAL:  terminating connection due to administrator command
+2022-08-15 22:57:47.348 -05 [31172] LOG:  background worker "logical replication launcher" (PID 31179) exited with exit code 1
+2022-08-15 22:57:47.349 -05 [31174] LOG:  shutting down
+2022-08-15 22:57:47.357 -05 [31172] LOG:  database system is shut down
+2022-08-15 22:58:43.450 -05 [32761] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-08-15 22:58:43.452 -05 [32761] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-08-15 22:58:43.452 -05 [32761] LOG:  listening on IPv6 address "::1", port 5432
+2022-08-15 22:58:43.453 -05 [32761] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-08-15 22:58:43.457 -05 [32762] LOG:  database system was shut down at 2022-08-15 22:57:47 -05
+2022-08-15 22:58:43.459 -05 [32761] LOG:  database system is ready to accept connections
+2022-08-15 22:58:55.686 -05 [32761] LOG:  received fast shutdown request
+2022-08-15 22:58:55.687 -05 [32761] LOG:  aborting any active transactions
+2022-08-15 22:58:55.688 -05 [32761] LOG:  background worker "logical replication launcher" (PID 32768) exited with exit code 1
+2022-08-15 22:58:55.688 -05 [32763] LOG:  shutting down
+2022-08-15 22:58:55.692 -05 [32761] LOG:  database system is shut down
+2022-09-17 10:34:48.061 -05 [4631] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-17 10:34:48.063 -05 [4631] LOG:  could not bind IPv6 address "::1": Address already in use
+2022-09-17 10:34:48.063 -05 [4631] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-09-17 10:34:48.063 -05 [4631] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2022-09-17 10:34:48.063 -05 [4631] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-09-17 10:34:48.063 -05 [4631] WARNING:  could not create listen socket for "localhost"
+2022-09-17 10:34:48.063 -05 [4631] FATAL:  could not create any TCP/IP sockets
+2022-09-17 10:34:48.063 -05 [4631] LOG:  database system is shut down
+2022-09-17 10:35:09.119 -05 [4645] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-17 10:35:09.121 -05 [4645] LOG:  could not bind IPv6 address "::1": Address already in use
+2022-09-17 10:35:09.121 -05 [4645] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-09-17 10:35:09.121 -05 [4645] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2022-09-17 10:35:09.121 -05 [4645] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-09-17 10:35:09.121 -05 [4645] WARNING:  could not create listen socket for "localhost"
+2022-09-17 10:35:09.121 -05 [4645] FATAL:  could not create any TCP/IP sockets
+2022-09-17 10:35:09.121 -05 [4645] LOG:  database system is shut down
+2022-09-17 10:40:07.914 -05 [4795] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-17 10:40:07.916 -05 [4795] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-17 10:40:07.916 -05 [4795] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-17 10:40:07.916 -05 [4795] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-17 10:40:07.923 -05 [4796] LOG:  database system was shut down at 2022-08-15 22:58:55 -05
+2022-09-17 10:40:07.926 -05 [4795] LOG:  database system is ready to accept connections
+2022-09-17 10:42:36.227 -05 [4837] FATAL:  database "fast_api" does not exist
+2022-09-17 10:42:39.387 -05 [4840] FATAL:  database "fast_api" does not exist
+2022-09-17 10:42:44.130 -05 [4842] FATAL:  database "fast_api" does not exist
+2022-09-17 10:42:44.149 -05 [4844] FATAL:  database "fast_api" does not exist
+2022-09-17 10:42:45.126 -05 [4846] FATAL:  database "fast_api" does not exist
+2022-09-17 10:42:59.359 -05 [4820] ERROR:  relation "users'" does not exist at character 15
+2022-09-17 10:42:59.359 -05 [4820] STATEMENT:  SELECT * FROM "users'"
+	;
+2022-09-17 10:43:07.626 -05 [4820] ERROR:  relation "users" does not exist at character 15
+2022-09-17 10:43:07.626 -05 [4820] STATEMENT:  SELECT * FROM "users";
+2022-09-17 10:43:17.697 -05 [4820] ERROR:  relation "users" does not exist at character 15
+2022-09-17 10:43:17.697 -05 [4820] STATEMENT:  SELECT * FROM Users;
+2022-09-17 10:43:56.282 -05 [4820] ERROR:  relation "users" does not exist at character 27
+2022-09-17 10:43:56.282 -05 [4820] STATEMENT:  SELECT username, bio FROM Users;
+2022-09-17 11:07:16.721 -05 [4795] LOG:  received fast shutdown request
+2022-09-17 11:07:16.721 -05 [4795] LOG:  aborting any active transactions
+2022-09-17 11:07:16.721 -05 [4820] FATAL:  terminating connection due to administrator command
+2022-09-17 11:07:16.722 -05 [4795] LOG:  background worker "logical replication launcher" (PID 4802) exited with exit code 1
+2022-09-17 11:07:16.722 -05 [4797] LOG:  shutting down
+2022-09-17 11:07:16.725 -05 [4795] LOG:  database system is shut down
+2022-09-17 17:17:48.169 -05 [7832] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-17 17:17:48.171 -05 [7832] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-17 17:17:48.171 -05 [7832] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-17 17:17:48.172 -05 [7832] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-17 17:17:48.177 -05 [7833] LOG:  database system was shut down at 2022-09-17 11:07:16 -05
+2022-09-17 17:17:48.180 -05 [7832] LOG:  database system is ready to accept connections
+2022-09-17 18:17:29.918 -05 [7832] LOG:  received fast shutdown request
+2022-09-17 18:17:29.919 -05 [7832] LOG:  aborting any active transactions
+2022-09-17 18:17:29.919 -05 [7992] FATAL:  terminating connection due to administrator command
+2022-09-17 18:17:29.919 -05 [7832] LOG:  background worker "logical replication launcher" (PID 7839) exited with exit code 1
+2022-09-17 18:17:29.919 -05 [7834] LOG:  shutting down
+2022-09-17 18:17:29.924 -05 [7832] LOG:  database system is shut down
+2022-09-18 10:55:22.241 -05 [11800] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-18 10:55:22.244 -05 [11800] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-18 10:55:22.261 -05 [11800] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-18 10:55:22.261 -05 [11800] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-18 10:55:22.266 -05 [11801] LOG:  database system was shut down at 2022-09-17 18:17:29 -05
+2022-09-18 10:55:22.268 -05 [11800] LOG:  database system is ready to accept connections
+2022-09-18 11:41:31.380 -05 [11800] LOG:  received fast shutdown request
+2022-09-18 11:41:31.380 -05 [11800] LOG:  aborting any active transactions
+2022-09-18 11:41:31.381 -05 [11800] LOG:  background worker "logical replication launcher" (PID 11807) exited with exit code 1
+2022-09-18 11:41:31.381 -05 [11802] LOG:  shutting down
+2022-09-18 11:41:31.384 -05 [11800] LOG:  database system is shut down
+2022-09-21 20:18:44.486 -05 [52311] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-21 20:18:44.489 -05 [52311] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-21 20:18:44.489 -05 [52311] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-21 20:18:44.490 -05 [52311] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-21 20:18:44.495 -05 [52312] LOG:  database system was shut down at 2022-09-18 11:41:31 -05
+2022-09-21 20:18:44.498 -05 [52311] LOG:  database system is ready to accept connections
+2022-09-21 20:41:50.231 -05 [52311] LOG:  received fast shutdown request
+2022-09-21 20:41:50.231 -05 [52311] LOG:  aborting any active transactions
+2022-09-21 20:41:50.232 -05 [52311] LOG:  background worker "logical replication launcher" (PID 52318) exited with exit code 1
+2022-09-21 20:41:50.232 -05 [52313] LOG:  shutting down
+2022-09-21 20:41:50.236 -05 [52311] LOG:  database system is shut down
+2022-09-21 21:12:15.689 -05 [53720] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-21 21:12:15.691 -05 [53720] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-21 21:12:15.691 -05 [53720] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-21 21:12:15.691 -05 [53720] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-21 21:12:15.696 -05 [53721] LOG:  database system was shut down at 2022-09-21 20:41:50 -05
+2022-09-21 21:12:15.698 -05 [53720] LOG:  database system is ready to accept connections
+2022-09-21 21:26:34.303 -05 [53720] LOG:  received fast shutdown request
+2022-09-21 21:26:34.303 -05 [53720] LOG:  aborting any active transactions
+2022-09-21 21:26:34.304 -05 [53720] LOG:  background worker "logical replication launcher" (PID 53727) exited with exit code 1
+2022-09-21 21:26:34.304 -05 [53722] LOG:  shutting down
+2022-09-21 21:26:34.308 -05 [53720] LOG:  database system is shut down
+2022-09-21 21:26:37.075 -05 [54543] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-09-21 21:26:37.076 -05 [54543] LOG:  listening on IPv6 address "::1", port 5432
+2022-09-21 21:26:37.076 -05 [54543] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-09-21 21:26:37.077 -05 [54543] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-09-21 21:26:37.079 -05 [54544] LOG:  database system was shut down at 2022-09-21 21:26:34 -05
+2022-09-21 21:26:37.081 -05 [54543] LOG:  database system is ready to accept connections
+2022-09-21 22:30:23.307 -05 [54543] LOG:  received fast shutdown request
+2022-09-21 22:30:23.307 -05 [54543] LOG:  aborting any active transactions
+2022-09-21 22:30:23.308 -05 [54543] LOG:  background worker "logical replication launcher" (PID 54550) exited with exit code 1
+2022-09-21 22:30:23.308 -05 [54560] FATAL:  terminating connection due to administrator command
+2022-09-21 22:30:23.309 -05 [54545] LOG:  shutting down
+2022-09-21 22:30:23.312 -05 [54543] LOG:  database system is shut down
+2022-10-05 19:47:30.053 -05 [32722] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-05 19:47:30.055 -05 [32722] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2022-10-05 19:47:30.055 -05 [32722] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-10-05 19:47:30.055 -05 [32722] LOG:  could not bind IPv6 address "::1": Address already in use
+2022-10-05 19:47:30.055 -05 [32722] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-10-05 19:47:30.055 -05 [32722] WARNING:  could not create listen socket for "localhost"
+2022-10-05 19:47:30.055 -05 [32722] FATAL:  could not create any TCP/IP sockets
+2022-10-05 19:47:30.055 -05 [32722] LOG:  database system is shut down
+2022-10-05 19:47:58.456 -05 [32759] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-05 19:47:58.458 -05 [32759] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-05 19:47:58.458 -05 [32759] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-05 19:47:58.458 -05 [32759] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-05 19:47:58.464 -05 [32760] LOG:  database system was shut down at 2022-09-21 22:30:23 -05
+2022-10-05 19:47:58.468 -05 [32759] LOG:  database system is ready to accept connections
+2022-10-05 19:51:57.000 -05 [32829] ERROR:  relation "Users" does not exist at character 15
+2022-10-05 19:51:57.000 -05 [32829] STATEMENT:  SELECT * FROM "Users";
+2022-10-05 19:52:45.897 -05 [32838] ERROR:  syntax error at or near "clear" at character 1
+2022-10-05 19:52:45.897 -05 [32838] STATEMENT:  clear
+	SELECT * FROM "Users";
+2022-10-05 21:40:38.555 -05 [32759] LOG:  received fast shutdown request
+2022-10-05 21:40:38.556 -05 [32759] LOG:  aborting any active transactions
+2022-10-05 21:40:38.556 -05 [32759] LOG:  background worker "logical replication launcher" (PID 32766) exited with exit code 1
+2022-10-05 21:40:38.557 -05 [32838] FATAL:  terminating connection due to administrator command
+2022-10-05 21:40:38.557 -05 [32761] LOG:  shutting down
+2022-10-05 21:40:38.562 -05 [32759] LOG:  database system is shut down
+2022-10-05 21:41:37.127 -05 [35150] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-05 21:41:37.129 -05 [35150] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-05 21:41:37.129 -05 [35150] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-05 21:41:37.129 -05 [35150] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-05 21:41:37.134 -05 [35151] LOG:  database system was shut down at 2022-10-05 21:40:38 -05
+2022-10-05 21:41:37.136 -05 [35150] LOG:  database system is ready to accept connections
+2022-10-05 21:43:33.033 -05 [35177] ERROR:  syntax error at or near "que" at character 44
+2022-10-05 21:43:33.033 -05 [35177] STATEMENT:  SELECT username FROM "Users" WHERE bio=por que me miras asi;
+2022-10-05 21:43:57.369 -05 [35177] ERROR:  relation "users" does not exist at character 17
+2022-10-05 21:43:57.369 -05 [35177] STATEMENT:  SELECT bio FROM Users;
+2022-10-05 21:44:40.577 -05 [35177] ERROR:  column "amor" does not exist at character 40
+2022-10-05 21:44:40.577 -05 [35177] STATEMENT:  SELECT bio FROM "Users" WHERE username="amor";
+2022-10-05 21:45:03.417 -05 [35177] ERROR:  column "amor" does not exist at character 40
+2022-10-05 21:45:03.417 -05 [35177] STATEMENT:  SELECT bio FROM "Users" WHERE username=amor;
+2022-10-05 21:45:41.318 -05 [35177] ERROR:  column "amor" does not exist at character 41
+2022-10-05 21:45:41.318 -05 [35177] STATEMENT:  SELECT bio FROM "Users" 
+	WHERE username=amor;
+2022-10-05 21:47:22.714 -05 [35177] ERROR:  syntax error at or near "'Users'" at character 15
+2022-10-05 21:47:22.714 -05 [35177] STATEMENT:  SELECT * FROM 'Users';
+2022-10-05 21:47:49.306 -05 [35150] LOG:  received fast shutdown request
+2022-10-05 21:47:49.307 -05 [35150] LOG:  aborting any active transactions
+2022-10-05 21:47:49.307 -05 [35177] FATAL:  terminating connection due to administrator command
+2022-10-05 21:47:49.308 -05 [35150] LOG:  background worker "logical replication launcher" (PID 35157) exited with exit code 1
+2022-10-05 21:47:49.308 -05 [35152] LOG:  shutting down
+2022-10-05 21:47:49.313 -05 [35150] LOG:  database system is shut down
+2022-10-06 20:27:10.685 -05 [50809] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-06 20:27:10.686 -05 [50809] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-06 20:27:10.686 -05 [50809] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-06 20:27:10.687 -05 [50809] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-06 20:27:10.691 -05 [50810] LOG:  database system was shut down at 2022-10-05 21:47:49 -05
+2022-10-06 20:27:10.694 -05 [50809] LOG:  database system is ready to accept connections
+2022-10-06 21:41:46.193 -05 [50873] ERROR:  column "dani" does not exist at character 62
+2022-10-06 21:41:46.193 -05 [50873] STATEMENT:  INSERT INTO "Users" (username, email, bio, password) VALUES (Dani, email@col.com, "amor", password) RETURNING *;
+2022-10-06 21:42:17.908 -05 [50873] ERROR:  column "password" does not exist at character 95
+2022-10-06 21:42:17.908 -05 [50873] HINT:  There is a column named "password" in table "Users", but it cannot be referenced from this part of the query.
+2022-10-06 21:42:17.908 -05 [50873] STATEMENT:  INSERT INTO "Users" (username, email, bio, password) VALUES ('Dani', 'email@col.com', 'amor', password) RETURNING *;
+2022-10-06 21:44:59.096 -05 [50809] LOG:  received fast shutdown request
+2022-10-06 21:44:59.097 -05 [50809] LOG:  aborting any active transactions
+2022-10-06 21:44:59.097 -05 [50873] FATAL:  terminating connection due to administrator command
+2022-10-06 21:44:59.098 -05 [50809] LOG:  background worker "logical replication launcher" (PID 50816) exited with exit code 1
+2022-10-06 21:44:59.098 -05 [50811] LOG:  shutting down
+2022-10-06 21:44:59.104 -05 [50809] LOG:  database system is shut down
+2022-10-07 20:15:42.308 -05 [63978] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-07 20:15:42.310 -05 [63978] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-07 20:15:42.310 -05 [63978] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-07 20:15:42.310 -05 [63978] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-07 20:15:42.315 -05 [63979] LOG:  database system was shut down at 2022-10-06 21:44:59 -05
+2022-10-07 20:15:42.318 -05 [63978] LOG:  database system is ready to accept connections
+2022-10-07 21:36:49.925 -05 [63978] LOG:  received fast shutdown request
+2022-10-07 21:36:49.926 -05 [63978] LOG:  aborting any active transactions
+2022-10-07 21:36:49.926 -05 [64145] FATAL:  terminating connection due to administrator command
+2022-10-07 21:36:49.927 -05 [63978] LOG:  background worker "logical replication launcher" (PID 63985) exited with exit code 1
+2022-10-07 21:36:49.927 -05 [63980] LOG:  shutting down
+2022-10-07 21:36:49.932 -05 [63978] LOG:  database system is shut down
+2022-10-07 21:43:05.192 -05 [66100] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-07 21:43:05.194 -05 [66100] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-07 21:43:05.194 -05 [66100] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-07 21:43:05.194 -05 [66100] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-07 21:43:05.196 -05 [66101] LOG:  database system was shut down at 2022-10-07 21:36:49 -05
+2022-10-07 21:43:05.198 -05 [66100] LOG:  database system is ready to accept connections
+2022-10-07 21:48:10.204 -05 [66100] LOG:  received fast shutdown request
+2022-10-07 21:48:10.205 -05 [66100] LOG:  aborting any active transactions
+2022-10-07 21:48:10.206 -05 [66100] LOG:  background worker "logical replication launcher" (PID 66107) exited with exit code 1
+2022-10-07 21:48:10.206 -05 [66102] LOG:  shutting down
+2022-10-07 21:48:10.209 -05 [66100] LOG:  database system is shut down
+2022-10-08 19:13:06.688 -05 [68505] LOG:  starting PostgreSQL 14.4 on aarch64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-08 19:13:06.690 -05 [68505] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-08 19:13:06.690 -05 [68505] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-08 19:13:06.690 -05 [68505] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-08 19:13:06.694 -05 [68506] LOG:  database system was shut down at 2022-10-07 21:48:10 -05
+2022-10-08 19:13:06.696 -05 [68505] LOG:  database system is ready to accept connections
+2022-10-08 19:17:57.037 -05 [68505] LOG:  received fast shutdown request
+2022-10-08 19:17:57.038 -05 [68505] LOG:  aborting any active transactions
+2022-10-08 19:17:57.038 -05 [68505] LOG:  background worker "logical replication launcher" (PID 68512) exited with exit code 1
+2022-10-08 19:17:57.038 -05 [68507] LOG:  shutting down
+2022-10-08 19:17:57.041 -05 [68505] LOG:  database system is shut down
