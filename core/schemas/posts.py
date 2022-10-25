@@ -20,3 +20,11 @@ class CreatePost(BaseModel):
 
 class PostReturn(BasePost):
     user: UserResponse
+
+
+class DeleteRes(BaseModel):
+    message: str
+
+
+class EditPost(BaseModel):
+    text: str

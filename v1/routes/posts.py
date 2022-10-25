@@ -1,12 +1,13 @@
+from email.policy import HTTP
 from typing import Literal
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy import asc, desc
+from fastapi import APIRouter, Body, Depends, HTTPException, Query
+from sqlalchemy import asc, desc, sql
 from core.models.database import get_db
 from dependencies.authenticate import authenticate, get_user_id
 from sqlalchemy.orm import Session
 from core.models.posts import Post
 from core.models.users import User
-from core.schemas.posts import CreatePost, PostReturn
+from core.schemas.posts import CreatePost, DeleteRes, EditPost, PostReturn
 from fastapi_pagination import paginate, Page
 
 router = APIRouter()
@@ -48,3 +49,34 @@ def get_posts(
             filter_by).order_by(order_fn(keys[order_by])).all())
     except:
         HTTPException(status_code=500, detail='Something went wrong')
+
+
+@router.put('/edit/{post_id}', dependencies=[Depends(authenticate)], response_model=PostReturn)
+def edit_post(post_id: int, data: EditPost = Body(), user_id: int = Depends(get_user_id), db: Session = Depends(get_db)):
+    post = Post.get_post_by_id(id=post_id, db=db)
+
+    if post.user_id != user_id:
+        raise HTTPException(status_code=401, detail='Unauthorized')
+
+    try:
+        setattr(post, 'text', data.text)
+        db.commit()
+        db.refresh(post)
+        return post
+    except:
+        return HTTPException(status_code=500)
+
+
+@router.delete('/delete/{post_id}', dependencies=[Depends(authenticate)], response_model=DeleteRes)
+def delete_post(post_id: int, user_id: int = Depends(get_user_id), db: Session = Depends(get_db)):
+    post = db.query(Post).filter(Post.id == post_id).first()
+
+    if post.user_id != user_id:
+        raise HTTPException(status_code=401, detail='Unauthorized')
+
+    try:
+        db.delete(post)
+        db.commit()
+        return {'message': 'success'}
+    except:
+        raise HTTPException(status_code=500)

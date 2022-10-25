@@ -1,5 +1,5 @@
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, Text, sql
-from core.models.database import Base
+from core.models.database import Base, Session
 from sqlalchemy.orm import relationship
 
 
@@ -11,3 +11,7 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey('Users.id'), nullable=False)
 
     user = relationship('User', foreign_keys=[user_id])
+
+    @classmethod
+    def get_post_by_id(self, id: int, db: Session):
+        return db.query(self).filter(self.id == id).first()
