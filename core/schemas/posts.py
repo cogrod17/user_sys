@@ -1,5 +1,6 @@
+from ctypes import Union
 from datetime import datetime
-from typing import Literal
+from typing import List
 from pydantic import BaseModel
 from core.schemas.users import UserResponse
 
@@ -18,8 +19,19 @@ class CreatePost(BaseModel):
     text: str
 
 
+class CommentOnPost(BaseModel):
+    # id: int
+    created_at: datetime
+    text: str
+    user: UserResponse
+
+    class Config:
+        orm_mode = True
+
+
 class PostReturn(BasePost):
     user: UserResponse
+    comments: List[CommentOnPost]
 
 
 class DeleteRes(BaseModel):

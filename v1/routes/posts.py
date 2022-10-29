@@ -1,6 +1,7 @@
 from typing import Literal
 from fastapi import APIRouter, Body, Depends, HTTPException, Query
 from sqlalchemy import asc, desc, sql
+from core.models.comments import Comment
 from core.models.database import get_db
 from dependencies.authenticate import authenticate, get_user_id
 from sqlalchemy.orm import Session

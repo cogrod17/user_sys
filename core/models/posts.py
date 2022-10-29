@@ -11,6 +11,8 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey('Users.id'), nullable=False)
 
     user = relationship('User', foreign_keys=[user_id])
+    comments = relationship('Comment', cascade='all, delete',
+                            primaryjoin='Comment.post_id == Post.id')
 
     @classmethod
     def get_post_by_id(self, id: int, db: Session):

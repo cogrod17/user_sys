@@ -15,7 +15,7 @@ router = APIRouter()
 
 
 @router.post('/create', response_model=UserResponse)
-def create_user(user: CreateUser, db: Session = Depends(get_db)):
+def create_user(user: CreateUser, db: Session = Depends(get_db)) -> User:
     hashed_password = bcrypt.hashpw(
         user.password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
