@@ -1,5 +1,6 @@
-from typing import Dict, List
-from fastapi import APIRouter, Depends, HTTPException
+from typing import Dict, Literal
+from fastapi import APIRouter, Depends, HTTPException, Query
+from sqlalchemy import asc, desc
 from core.schemas.jwt import DecodedToken
 from core.schemas.users import User as CreateUser, UserChangePassword, UserLogin, UserLoginResponse, UserResponse, UserUpdate
 from core.models.users import User
@@ -8,7 +9,7 @@ from core.models.database import get_db
 import bcrypt
 from services.jwt import signJWT
 from dependencies.authenticate import authenticate, check_is_self, parse_token
-
+from fastapi_pagination import paginate, Page
 
 router = APIRouter()
 
@@ -27,7 +28,7 @@ def create_user(user: CreateUser, db: Session = Depends(get_db)):
 
 
 @router.post('/login', response_model=UserLoginResponse)
-def login(data: UserLogin, db: Session = Depends(get_db)):
+def login(data: UserLogin, db: Session = Depends(get_db)) -> UserLoginResponse:
     user = db.query(User).filter(User.email == data.email).first()
 
     if user is None:
@@ -46,7 +47,7 @@ def login(data: UserLogin, db: Session = Depends(get_db)):
 
 
 @router.patch('/update', dependencies=[Depends(check_is_self), Depends(authenticate)], response_model=UserResponse)
-def update_user(data: UserUpdate, db: Session = Depends(get_db)):
+def update_user(data: UserUpdate, db: Session = Depends(get_db)) -> UserResponse:
     user = User.get_user(id=data.id, db=db)
 
     if not user:
@@ -61,8 +62,8 @@ def update_user(data: UserUpdate, db: Session = Depends(get_db)):
     return user
 
 
-@router.delete('/delete/{user_id}', dependencies=[Depends(authenticate)], response_model=Dict[str, str])
-def delete_user(user_id: int, decoded_token: DecodedToken = Depends(parse_token), db: Session = Depends(get_db)):
+@router.delete('/delete/{user_id}', dependencies=[Depends(authenticate)], response_model=Dict[str, bool])
+def delete_user(user_id: int, decoded_token: DecodedToken = Depends(parse_token), db: Session = Depends(get_db)) -> dict[str, bool]:
     if not user_id == decoded_token['userId']:
         raise HTTPException(
             status_code=401, details='you cannot delete this user')
@@ -105,6 +106,22 @@ def change_password(data: UserChangePassword, user_id: int, decoded_token: Decod
     return user
 
 
-@router.get('/all', dependencies=[Depends(authenticate)], response_model=List[UserResponse])
-def get_all_users(db: Session = Depends(get_db)) -> List[UserResponse]:
-    return db.query(User).all()
+@router.get('/all', dependencies=[Depends(authenticate)], response_model=Page[UserResponse])
+def get_all_users(
+        order_by: Literal['username', 'bio',
+                          'email'] = Query(default='username'),
+        search_string: str = Query(default=''),
+        order: Literal['asc', 'desc'] = Query(default='asc'),
+        db: Session = Depends(get_db)) -> Page[UserResponse]:
+
+    term = f'%{search_string}%'
+    order_fn = asc if order == 'asc' else desc
+    keys = {
+        "username": User.username,
+        "email": User.email,
+        "bio": User.bio
+    }
+    filter_by = User.username.like(
+        term) | User.email.like(term) | User.bio.like(term)
+
+    return paginate(db.query(User).filter(filter_by).order_by(order_fn(keys[order_by])).all())
