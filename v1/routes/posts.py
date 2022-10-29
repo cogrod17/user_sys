@@ -7,7 +7,7 @@ from dependencies.authenticate import authenticate, get_user_id
 from sqlalchemy.orm import Session
 from core.models.posts import Post
 from core.models.users import User
-from core.schemas.posts import CreatePost, DeleteRes, EditPost, PostReturn
+from core.schemas.posts import CreatePost, DeleteRes, EditPost, PostReturn, PostReturnWithComments
 from fastapi_pagination import paginate, Page
 
 router = APIRouter()

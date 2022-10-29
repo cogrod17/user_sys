@@ -22,3 +22,13 @@ class CreateComment(BaseModel):
     text: str
     post_id: int
     user_id: int
+
+
+class CommentListItem(BaseModel):
+    id: int
+    created_at: datetime
+    text: str
+    user: UserResponse
+
+    class Config:
+        orm_mode = True

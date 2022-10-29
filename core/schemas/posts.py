@@ -31,6 +31,9 @@ class CommentOnPost(BaseModel):
 
 class PostReturn(BasePost):
     user: UserResponse
+
+
+class PostReturnWithComments(PostReturn):
     comments: List[CommentOnPost]
 
 
