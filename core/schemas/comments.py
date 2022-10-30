@@ -32,3 +32,10 @@ class CommentListItem(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class CommentUpdate(BaseModel):
+    text: str
+
+    class Config:
+        orm_mode = True
