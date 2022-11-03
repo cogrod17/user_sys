@@ -1,7 +1,8 @@
-from fastapi import Depends
 from core.models.database import Base, Session
-from sqlalchemy import ForeignKey, String, Column, Integer, Text
+from sqlalchemy import String, Column, Integer, Text
 from sqlalchemy.orm import relationship
+# from sqlalchemy_imageattach.stores im
+# from sqlalchemy_imageattach.entity import Image, image_attachment
 
 
 class User(Base):
@@ -11,6 +12,8 @@ class User(Base):
     email = Column(String, nullable=False, unique=True)
     bio = Column(Text, nullable=True)
     password = Column(String, nullable=False)
+
+    # avatar = sqlalchemy_imageattach.entity.image_attachment('Avatar')
 
     friend_requests = relationship(
         'Friends', cascade='all, delete',  primaryjoin="and_(or_(Friends.sender_id == User.id, Friends.recipient_id == User.id),  Friends.status == '1')", lazy='dynamic')
