@@ -1,5 +1,4 @@
 from typing import List
-
 from fastapi import APIRouter, Body, Depends, HTTPException
 from fastapi_pagination import Page, paginate
 from sqlalchemy import asc

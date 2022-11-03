@@ -18,6 +18,8 @@ pycparser==2.21
 pydantic==1.9.1
 PyJWT==2.4.0
 python-decouple==3.6
+python-multipart==0.0.5
+six==1.16.0
 sniffio==1.2.0
 SQLAlchemy==1.4.39
 starlette==0.20.4

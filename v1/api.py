@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from v1.routes import comments, friends, users, posts
+from v1.routes import comments, friends, users, posts, avatars
 
 router = APIRouter()
 
@@ -9,3 +9,4 @@ router.include_router(friends.router, tags=[
 router.include_router(posts.router, tags=['Posts'], prefix='/posts')
 router.include_router(comments.router, tags=[
                       'Comments'], prefix='/comments')
+router.include_router(avatars.router, tags=['Avatars'], prefix='/avatars')
