@@ -38,3 +38,15 @@ services:
     restart: always
     environment:
       DATABASE_URL: "${DB_URL}"
+
+    mobile:
+      container_name: "user_system_mobile"
+      build: .
+      command: npm start
+      volumes:
+        - ./user_system/RN-mobile
+      ports:
+        - 3000:3000
+      restart: always
+      depends_on:
+        - user-system
