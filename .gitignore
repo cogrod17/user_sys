@@ -2,3 +2,4 @@
 __pycache__
 .env
 user_system_data
+node_modules
