@@ -1,17 +1,49 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Modal, StyleSheet, TextInput, View } from "react-native";
 import { screens } from "../../utils";
 import { useNavigation } from "@react-navigation/native";
 import { Nav } from "../../utils/types";
+import { useAppContext } from "../../context";
+
+interface LoginValues {
+  email: string;
+  password: string;
+}
 
 export const Login: FC = () => {
   const nav = useNavigation<Nav>();
-  const [values, setValues] = useState({ email: "", password: "" });
+  const [values, setValues] = useState<LoginValues>({
+    email: "",
+    password: "",
+  });
+  const {
+    user,
+    user: { setUser },
+  } = useAppContext();
 
   const onChange = (newValues: object) =>
     setValues({ ...values, ...newValues });
 
-  //   const onSubmit = () => {}
+  const onSubmit = async () => {
+    const body = JSON.stringify(values);
+
+    const res = await fetch("http://localhost:8000/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    });
+    let json = await res.json();
+
+    setUser(json);
+  };
+
+  useEffect(() => {
+    console.log("------------");
+    console.log(user);
+    console.log("------------");
+  }, [user]);
 
   return (
     <Modal animationType="slide">
@@ -33,7 +65,7 @@ export const Login: FC = () => {
           //   pressed ? { ...styles.button, opacity: 0.5 } : styles.button
           // }
           title="Login"
-          onPress={() => nav.navigate(screens.PROFILE)}
+          onPress={onSubmit}
         />
       </View>
     </Modal>
