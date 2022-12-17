@@ -1,9 +1,8 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Button, Modal, StyleSheet, TextInput, View } from "react-native";
-import { screens } from "../../utils";
-import { useNavigation } from "@react-navigation/native";
-import { Nav } from "../../utils/types";
 import { useAppContext } from "../../context";
+import api from "../../utils/api";
+import { User } from "../../context/User/types";
 
 interface LoginValues {
   email: string;
@@ -11,13 +10,11 @@ interface LoginValues {
 }
 
 export const Login: FC = () => {
-  const nav = useNavigation<Nav>();
   const [values, setValues] = useState<LoginValues>({
     email: "",
     password: "",
   });
   const {
-    user,
     user: { setUser },
   } = useAppContext();
 
@@ -25,25 +22,9 @@ export const Login: FC = () => {
     setValues({ ...values, ...newValues });
 
   const onSubmit = async () => {
-    const body = JSON.stringify(values);
-
-    const res = await fetch("http://localhost:8000/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body,
-    });
-    let json = await res.json();
-
-    setUser(json);
+    const { data }: { data: User } = await api.post("/users/login", values);
+    setUser(data);
   };
-
-  useEffect(() => {
-    console.log("------------");
-    console.log(user);
-    console.log("------------");
-  }, [user]);
 
   return (
     <Modal animationType="slide">

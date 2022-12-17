@@ -29,7 +29,6 @@ def create_user(user: CreateUser, db: Session = Depends(get_db)) -> User:
 
 @router.post('/login', response_model=UserLoginResponse)
 def login(data: UserLogin, db: Session = Depends(get_db)) -> UserLoginResponse:
-    print(data)
     user = db.query(User).filter(User.email == data.email).first()
 
     if user is None:
