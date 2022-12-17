@@ -1,13 +1,15 @@
 export interface User {
-  id?: number;
-  username?: string;
-  bio?: string;
-  email?: string;
-  access_token?: string;
+  id?: number | null;
+  username?: string | null;
+  bio?: string | null;
+  email?: string | null;
+  access_token?: string | null;
 }
 
 export type UserContextType = {
   user: User | null;
-  setUser: (user: User) => void;
-  removeUser?: () => void;
+  actions: {
+    setUser: (user: User) => void;
+    removeUser?: () => void;
+  };
 };

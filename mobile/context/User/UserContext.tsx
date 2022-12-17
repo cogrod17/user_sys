@@ -1,26 +1,30 @@
-import { useCallback, createContext, FC, useState } from "react";
+import { createContext, FC, Reducer, useMemo, useReducer } from "react";
 import { User, UserContextType } from "./types";
 import { Props } from "../AppContext/combine";
+import userReducer, { UserActions } from "./userReducer";
 
-const initUser = {
-  user: null,
-  setUser: (user: User) => {},
-  removeUser: () => {},
+export const UserContext = createContext<UserContextType | null>(null);
+
+export const initUser = {
+  id: null,
+  username: null,
+  bio: null,
+  email: null,
+  access_token: null,
 };
 
-export const UserContext = createContext<UserContextType>(initUser);
-
 export const UserProvider: FC<Props> = ({ children }) => {
-  const [user, updateUser] = useState<User | null>(null);
+  const [user, dispatch] = useReducer(userReducer, initUser);
 
-  const setUser = useCallback(
-    (newData: User) => updateUser({ ...user, ...newData }),
-    [updateUser, user]
+  const actions = useMemo(
+    () => ({
+      setUser: (newData: User) =>
+        dispatch({ type: UserActions.SET_USER, payload: newData }),
+    }),
+    [dispatch]
   );
 
-  const removeUser = useCallback(() => updateUser(null), [updateUser]);
-
-  const values: UserContextType = { user, setUser, removeUser };
+  const values: UserContextType = { user, actions };
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 };

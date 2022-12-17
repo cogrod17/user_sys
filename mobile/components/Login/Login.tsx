@@ -14,16 +14,14 @@ export const Login: FC = () => {
     email: "",
     password: "",
   });
-  const {
-    user: { setUser },
-  } = useAppContext();
+  const { user } = useAppContext();
 
   const onChange = (newValues: object) =>
     setValues({ ...values, ...newValues });
 
   const onSubmit = async () => {
     const { data }: { data: User } = await api.post("/users/login", values);
-    setUser(data);
+    user?.actions.setUser(data);
   };
 
   return (
@@ -39,15 +37,7 @@ export const Login: FC = () => {
           placeholder="Password"
           style={styles.input}
         ></TextInput>
-
-        <Button
-          // style={({ pressed }) =>
-          //   //dynamic styles!
-          //   pressed ? { ...styles.button, opacity: 0.5 } : styles.button
-          // }
-          title="Login"
-          onPress={onSubmit}
-        />
+        <Button title="Login" onPress={onSubmit} />
       </View>
     </Modal>
   );
