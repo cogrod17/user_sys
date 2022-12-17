@@ -1,5 +1,4 @@
-import { useReducer } from "react";
-import { User, UserContextType } from "./types";
+import { User } from "./types";
 import { initUser } from "./UserContext";
 
 export enum UserActions {
