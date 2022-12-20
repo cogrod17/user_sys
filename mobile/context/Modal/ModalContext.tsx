@@ -1,21 +1,23 @@
-import { createContext, FC, useMemo, useReducer } from "react";
+import { createContext, FC, ReactNode, useMemo, useReducer } from "react";
 import ModalReducer, { ModalActions } from "./ModalReducer";
-import { ModalState, ModalContextType } from "./types";
+import { ModalContextType } from "./types";
 import { Props } from "../AppContext/combine";
 
 const initModal = {
   isOpen: false,
-  component: null,
+  Component: null,
 };
 
-export const ModalContext = createContext<ModalContextType | null>(null);
+export const ModalContext = createContext<ModalContextType>({
+  ...initModal,
+});
 
 export const ModalProvider: FC<Props> = ({ children }) => {
   const [modal, dispatch] = useReducer(ModalReducer, initModal);
 
   const actions = useMemo(
     () => ({
-      open: (Component: FC): void =>
+      open: (Component: ReactNode): void =>
         dispatch({ type: ModalActions.OPEN_MODAL, payload: Component }),
       close: () => dispatch({ type: ModalActions.CLOSE_MODAL, payload: null }),
     }),
@@ -23,7 +25,7 @@ export const ModalProvider: FC<Props> = ({ children }) => {
   );
 
   return (
-    <ModalContext.Provider value={{ modal, actions }}>
+    <ModalContext.Provider value={{ ...modal, actions }}>
       {children}
     </ModalContext.Provider>
   );

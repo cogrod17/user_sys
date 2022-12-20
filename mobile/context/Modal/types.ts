@@ -1,14 +1,13 @@
-import { FC } from "react";
+import { ReactNode } from "react";
 
 export interface ModalState {
   isOpen: boolean;
-  component: FC | null;
+  Component: ReactNode | null;
 }
 
-export type ModalContextType = {
-  modal: ModalState;
-  actions: {
-    open: (comp: FC) => void;
+export interface ModalContextType extends ModalState {
+  actions?: {
+    open: (comp: ReactNode) => void;
     close: () => void;
   };
-};
+}

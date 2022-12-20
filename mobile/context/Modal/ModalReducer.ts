@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ReactNode } from "react";
 import { ModalState } from "./types";
 
 export enum ModalActions {
@@ -8,7 +8,7 @@ export enum ModalActions {
 
 interface ModalAction {
   type: ModalActions;
-  payload: FC | null;
+  payload: ReactNode | null;
 }
 
 export default (
@@ -17,8 +17,8 @@ export default (
 ): ModalState => {
   switch (type) {
     case ModalActions.CLOSE_MODAL:
-      return { isOpen: false, component: null };
+      return { isOpen: false, Component: null };
     case ModalActions.OPEN_MODAL:
-      return { isOpen: true, component: payload };
+      return { isOpen: true, Component: payload };
   }
 };

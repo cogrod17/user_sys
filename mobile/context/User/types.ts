@@ -6,10 +6,9 @@ export interface User {
   access_token?: string | null;
 }
 
-export type UserContextType = {
-  user: User | null;
-  actions: {
+export interface UserContextType extends User {
+  actions?: {
     setUser: (user: User) => void;
     removeUser?: () => void;
   };
-};
+}

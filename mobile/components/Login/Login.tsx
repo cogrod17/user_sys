@@ -1,8 +1,10 @@
 import { FC, useState } from "react";
-import { Button, Modal, StyleSheet, TextInput, View } from "react-native";
+import { Modal, StyleSheet, TextInput, View, Text } from "react-native";
 import { useAppContext } from "../../context";
 import api from "../../utils/api";
 import { User } from "../../context/User/types";
+import { colors } from "../../utils/styles";
+import { Button } from "../Global";
 
 interface LoginValues {
   email: string;
@@ -10,23 +12,26 @@ interface LoginValues {
 }
 
 export const Login: FC = () => {
+  const { user } = useAppContext();
   const [values, setValues] = useState<LoginValues>({
     email: "",
     password: "",
   });
-  const { user } = useAppContext();
 
   const onChange = (newValues: object) =>
     setValues({ ...values, ...newValues });
 
   const onSubmit = async () => {
     const { data }: { data: User } = await api.post("/users/login", values);
-    user?.actions.setUser(data);
+    user?.actions?.setUser(data);
   };
 
   return (
     <Modal animationType="slide">
       <View style={styles.loginContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Login</Text>
+        </View>
         <TextInput
           onChangeText={(email) => onChange({ email })}
           placeholder="Email"
@@ -37,7 +42,7 @@ export const Login: FC = () => {
           placeholder="Password"
           style={styles.input}
         ></TextInput>
-        <Button title="Login" onPress={onSubmit} />
+        <Button style={{ marginTop: 10 }} text="Login" onPress={onSubmit} />
       </View>
     </Modal>
   );
@@ -47,22 +52,30 @@ const styles = StyleSheet.create({
   loginContainer: {
     display: "flex",
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.tan,
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "red",
-    borderWidth: 2,
+  },
+  titleContainer: {
+    position: "absolute",
+    top: "30%",
+  },
+  title: {
+    fontSize: 30,
+    color: colors.brown,
+    textTransform: "uppercase",
+    letterSpacing: 1.5,
   },
   input: {
-    // borderColor: "#ccc",
-    // borderWidth: 2,
+    borderColor: colors.white,
+    borderWidth: 2,
+    backgroundColor: colors.white,
     margin: 10,
-    padding: 10,
-    borderRadius: 10,
+    padding: 12,
+    borderRadius: 20,
     width: 300,
     heigth: 10,
-    color: "#fff",
-    backgroundColor: "#696969",
+    color: colors.black,
   },
   buttonWrap: {
     display: "flex",

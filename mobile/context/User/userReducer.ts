@@ -1,5 +1,4 @@
 import { User } from "./types";
-import { initUser } from "./UserContext";
 
 export enum UserActions {
   SET_USER = "SET_USER",
@@ -16,6 +15,12 @@ export default (state: User | null, { type, payload }: UserAction): User => {
     case UserActions.SET_USER:
       return { ...payload };
     case UserActions.REMOVE_USER:
-      return initUser;
+      return {
+        id: null,
+        username: null,
+        bio: null,
+        email: null,
+        access_token: null,
+      };
   }
 };

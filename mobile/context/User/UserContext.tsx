@@ -11,7 +11,7 @@ export const initUser = {
   access_token: null,
 };
 
-export const UserContext = createContext<UserContextType | null>(null);
+export const UserContext = createContext<UserContextType>({ ...initUser });
 
 export const UserProvider: FC<Props> = ({ children }) => {
   const [user, dispatch] = useReducer(userReducer, initUser);
@@ -25,7 +25,7 @@ export const UserProvider: FC<Props> = ({ children }) => {
   );
 
   return (
-    <UserContext.Provider value={{ user, actions }}>
+    <UserContext.Provider value={{ ...user, actions }}>
       {children}
     </UserContext.Provider>
   );
